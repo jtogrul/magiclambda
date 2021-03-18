@@ -1,0 +1,36 @@
+{
+  "name": "monolambda",
+  "version": "1.0.0",
+  "description": "TypeScript framework for building multi-endpoint AWS API Gateway Lambdas",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint '**/**.ts' --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.863.0",
+    "joi": "^17.4.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/aws-lambda": "^8.10.72",
+    "@types/jest": "^26.0.20",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "eslint": "^7.22.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-jest": "^24.3.2",
+    "eslint-plugin-typescript": "^0.14.0",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.3",
+    "tsc": "^1.20150623.0",
+    "typescript": "^4.2.3"
+  }
+}
