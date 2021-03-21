@@ -1,4 +1,4 @@
-import { queryParam } from './query-param'
+import { queryParam, QueryParamsMetadata, queryParamsMetadataKey } from './query-param'
 
 describe('queryParam', () => {
   class TestController {
@@ -6,10 +6,10 @@ describe('queryParam', () => {
   }
 
   it('should register path params', () => {
-    const metadata = Reflect.getOwnMetadata('queryParams', TestController.prototype, 'testRoute')
+    const metadata: QueryParamsMetadata = Reflect.getOwnMetadata(queryParamsMetadataKey, TestController.prototype, 'testRoute')
     expect(metadata).toEqual({
-      param1: [0, true],
-      param2: [1, false]
+      param1: { parameterIndex: 0, required: true },
+      param2: { parameterIndex: 1, required: false }
     })
   })
 })

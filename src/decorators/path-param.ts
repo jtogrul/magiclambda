@@ -1,5 +1,29 @@
 import 'reflect-metadata'
-import { registerParamDetails, registerPathParams } from './helpers'
+import { registerParamDetails } from './params'
+
+export const pathParamsMetadataKey = Symbol.for('pathParams')
+
+/**
+ * Type of the metadata object for Path Params.
+ *
+ * Map key: param name
+ * Map value properties:
+ * - `parameterIndex`: Parameter's index in the router function's argument list
+ */
+export type PathParamsMetadata = {
+  [key: string]: {
+    parameterIndex: number
+  }
+}
+
+export const registerPathParams = (target: Object, propertyKey: string, parameterIndex: number, name: string) => {
+  let pathParams: PathParamsMetadata = Reflect.getOwnMetadata(pathParamsMetadataKey, target, propertyKey) || {}
+  pathParams = {
+    ...pathParams,
+    [name]: { parameterIndex }
+  }
+  Reflect.defineMetadata(pathParamsMetadataKey, pathParams, target, propertyKey)
+}
 
 export function pathParam (name: string) {
   return function (

@@ -1,4 +1,4 @@
-import { pathParam } from './path-param'
+import { pathParam, PathParamsMetadata, pathParamsMetadataKey } from './path-param'
 
 describe('pathParam', () => {
   class TestController {
@@ -6,10 +6,10 @@ describe('pathParam', () => {
   }
 
   it('should register path params', () => {
-    const metadata = Reflect.getOwnMetadata('pathParams', TestController.prototype, 'testRoute')
+    const metadata: PathParamsMetadata = Reflect.getOwnMetadata(pathParamsMetadataKey, TestController.prototype, 'testRoute')
     expect(metadata).toEqual({
-      param1: 0,
-      param2: 1
+      param1: { parameterIndex: 0 },
+      param2: { parameterIndex: 1 }
     })
   })
 })

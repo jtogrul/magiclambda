@@ -1,4 +1,4 @@
-import { Delete, Get, Patch, Post, Put } from './route'
+import { Delete, Get, HandlersMetadata, handlersMetadataKey, Patch, Post, Put } from './route'
 
 describe('controller', () => {
   class TestController {
@@ -16,16 +16,24 @@ describe('controller', () => {
 
     @Patch('/hello')
     patchHello () {}
+
+    @Get('/hey')
+    getHey () {}
   }
 
   it('should register routes', () => {
-    const metadata = Reflect.getMetadata('handlers', TestController.prototype)
+    const metadata: HandlersMetadata = Reflect.getMetadata(handlersMetadataKey, TestController.prototype)
     expect(metadata).toEqual({
-      '/hello#GET': 'getHello',
-      '/hello#POST': 'postHello',
-      '/hello#DELETE': 'deleteHello',
-      '/hello#PUT': 'putHello',
-      '/hello#PATCH': 'patchHello'
+      '/hello': {
+        GET: 'getHello',
+        POST: 'postHello',
+        DELETE: 'deleteHello',
+        PUT: 'putHello',
+        PATCH: 'patchHello'
+      },
+      '/hey': {
+        GET: 'getHey'
+      }
     })
   })
 })

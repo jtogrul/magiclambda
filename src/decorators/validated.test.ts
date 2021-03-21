@@ -1,6 +1,6 @@
 import Joi from 'joi'
 import { requestBody } from './request-body'
-import { validated } from './validated'
+import { validated, validatedParamsMetadataKey } from './validated'
 
 describe('validated', () => {
     type HelloObject = {
@@ -20,7 +20,7 @@ describe('validated', () => {
     }
 
     it('should register validation schema', () => {
-      const metadata = Reflect.getOwnMetadata('validatedParams', TestController.prototype, 'testRoute1')
+      const metadata = Reflect.getOwnMetadata(validatedParamsMetadataKey, TestController.prototype, 'testRoute1')
       expect(metadata).toStrictEqual({
         0: schema
       })

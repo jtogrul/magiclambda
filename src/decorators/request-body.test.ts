@@ -1,6 +1,6 @@
-import { requestBody } from './request-body'
+import { requestBody, RequestBodyParamMetadata, requestBodyParamMetadataKey } from './request-body'
 
-describe('requestParam', () => {
+describe('requestBody', () => {
     type HelloObject = {
       name: string
     }
@@ -12,17 +12,17 @@ describe('requestParam', () => {
     }
 
     it('should register required body param', () => {
-      const metadata = Reflect.getOwnMetadata('requestBodyParam', TestController.prototype, 'testRoute1')
-      expect(metadata).toEqual([0, true])
+      const metadata: RequestBodyParamMetadata = Reflect.getOwnMetadata(requestBodyParamMetadataKey, TestController.prototype, 'testRoute1')
+      expect(metadata).toEqual({ parameterIndex: 0, required: true })
     })
 
     it('should register optional body param', () => {
-      const metadata = Reflect.getOwnMetadata('requestBodyParam', TestController.prototype, 'testRoute2')
-      expect(metadata).toEqual([0, false])
+      const metadata: RequestBodyParamMetadata = Reflect.getOwnMetadata(requestBodyParamMetadataKey, TestController.prototype, 'testRoute2')
+      expect(metadata).toEqual({ parameterIndex: 0, required: false })
     })
 
     it('should register body param\'s argument index', () => {
-      const metadata = Reflect.getOwnMetadata('requestBodyParam', TestController.prototype, 'testRoute3')
-      expect(metadata).toEqual([1, false])
+      const metadata: RequestBodyParamMetadata = Reflect.getOwnMetadata(requestBodyParamMetadataKey, TestController.prototype, 'testRoute3')
+      expect(metadata).toEqual({ parameterIndex: 1, required: false })
     })
 })

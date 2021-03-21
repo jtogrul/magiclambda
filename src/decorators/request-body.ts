@@ -1,5 +1,15 @@
 import 'reflect-metadata'
-import { registerParamDetails } from './helpers'
+import { registerParamDetails } from './params'
+
+export const requestBodyParamMetadataKey = Symbol.for('requestBodyParam')
+
+/**
+ * Type of the metadata object for Query Params.
+ */
+export type RequestBodyParamMetadata = {
+  parameterIndex: number,
+  required: boolean
+}
 
 export function requestBody (required: boolean) {
   return function (
@@ -7,7 +17,8 @@ export function requestBody (required: boolean) {
     propertyKey: string,
     parameterIndex: number
   ) {
-    Reflect.defineMetadata('requestBodyParam', [parameterIndex, required], target, propertyKey)
-    registerParamDetails(target, propertyKey, parameterIndex, 'body')
+    const metadata: RequestBodyParamMetadata = { parameterIndex, required }
+    Reflect.defineMetadata(requestBodyParamMetadataKey, metadata, target, propertyKey)
+    registerParamDetails(target, propertyKey, parameterIndex, 'requestBody')
   }
 }
