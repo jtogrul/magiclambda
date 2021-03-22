@@ -28,12 +28,12 @@ To have the MonoLambda handle API Gateway requests you will need to declare a Co
 ```typescript
 // controller.ts
 
-import { Controller, Get, pathParam } from 'monolambda'
+import { Controller, Get, PathParam, ok } from 'monolambda'
 
 @Controller('/example')
 export class ExampleController {
   @Get('/hello/{name}')
-  getHelloName (@pathParam('name') name: string): Response {
+  getHelloName (@PathParam('name') name: string): Response {
     return ok(`Hello ${name}`)
   }
 }
@@ -76,19 +76,19 @@ Registers the annotated method as `PATCH` request handler for given `path`. Path
 
 Registers the annotated method as `DELETE` request handler for given `path`. Path params should be specified in `{paramName}` format.
 
-### `@pathParam(name: string)` [argument]
+### `@PathParam(name: string)` [argument]
 
 Marks the annotated argument as the receiver of the path param `name` which was specified in the `path` of the Router
 
-### `@queryParam(name: string, required: boolean)` [argument]
+### `@QueryParam(name: string, required: boolean)` [argument]
 
 Marks the annotated argument as the receiver of the query param `name`. Setting `required` to `true` instructs the handler to fail the request if the query parameter is not present.
 
-### `@requestBody(required: boolean)` [argument]
+### `@RequestBody(required: boolean)` [argument]
 
 Marks the annotated argument as the receiver of the HTTP request body. Setting `required` to `true` instructs the handler to fail the request if the request body is not present.
 
-### `validated (schema: Joi.Schema)` [argument]
+### `Validated (schema: Joi.Schema)` [argument]
 
 Instructs the handler to validate the annotated parameter (Path, Query or RequestBody) against given [Joi](https://github.com/sideway/joi) schema.
 

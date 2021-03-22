@@ -1,7 +1,7 @@
 import { Controller, Get, controllerHandler, pathParam, Response, ok, queryParam, Post, requestBody } from '.'
 import 'reflect-metadata'
 import { APIGatewayProxyEvent, APIGatewayProxyEventPathParameters } from 'aws-lambda'
-import { validated } from './decorators/validated'
+import { Validated } from './decorators/validated'
 import Joi from 'joi'
 
 type HelloObject = {
@@ -45,7 +45,7 @@ export class ExampleController {
   }
 
   @Post('/hello/body/object/validated')
-  postHelloObjectValidated (@validated(Joi.object({ name: Joi.string().alphanum().min(3).max(30).required() })) @requestBody(true) helloObject: HelloObject) {
+  postHelloObjectValidated (@Validated(Joi.object({ name: Joi.string().alphanum().min(3).max(30).required() })) @requestBody(true) helloObject: HelloObject) {
     return ok(`Hello ${helloObject.name}`)
   }
 }

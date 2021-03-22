@@ -11,7 +11,7 @@ export type RequestBodyParamMetadata = {
   required: boolean
 }
 
-export function requestBody (required: boolean) {
+export function RequestBody (required: boolean) {
   return function (
     target: Object,
     propertyKey: string,

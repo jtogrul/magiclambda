@@ -1,8 +1,8 @@
-import { pathParam, PathParamsMetadata, pathParamsMetadataKey } from './path-param'
+import { PathParam, PathParamsMetadata, pathParamsMetadataKey } from './path-param'
 
 describe('pathParam', () => {
   class TestController {
-    testRoute (@pathParam('param1') first: string, @pathParam('param2') second: string) {}
+    testRoute (@PathParam('param1') first: string, @PathParam('param2') second: string) {}
   }
 
   it('should register path params', () => {

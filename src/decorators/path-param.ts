@@ -25,7 +25,7 @@ export const registerPathParams = (target: Object, propertyKey: string, paramete
   Reflect.defineMetadata(pathParamsMetadataKey, pathParams, target, propertyKey)
 }
 
-export function pathParam (name: string) {
+export function PathParam (name: string) {
   return function (
     target: Object, // Class
     propertyKey: string, // method name

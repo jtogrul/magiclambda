@@ -27,7 +27,7 @@ export const registerQueryParams = (target: Object, propertyKey: string, paramet
   Reflect.defineMetadata(queryParamsMetadataKey, queryParams, target, propertyKey)
 }
 
-export function queryParam (name: string, required: boolean) {
+export function QueryParam (name: string, required: boolean) {
   return function (
     target: Object,
     propertyKey: string,

@@ -1,6 +1,6 @@
 import Joi from 'joi'
-import { requestBody } from './request-body'
-import { validated, validatedParamsMetadataKey } from './validated'
+import { RequestBody } from './request-body'
+import { Validated, validatedParamsMetadataKey } from './validated'
 
 describe('validated', () => {
     type HelloObject = {
@@ -16,7 +16,7 @@ describe('validated', () => {
     })
 
     class TestController {
-      testRoute1 (@validated(schema) @requestBody(true) helloObject: HelloObject) {}
+      testRoute1 (@Validated(schema) @RequestBody(true) helloObject: HelloObject) {}
     }
 
     it('should register validation schema', () => {

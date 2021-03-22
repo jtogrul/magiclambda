@@ -1,8 +1,8 @@
-import { queryParam, QueryParamsMetadata, queryParamsMetadataKey } from './query-param'
+import { QueryParam, QueryParamsMetadata, queryParamsMetadataKey } from './query-param'
 
 describe('queryParam', () => {
   class TestController {
-    testRoute (@queryParam('param1', true) first: string, @queryParam('param2', false) second: string) {}
+    testRoute (@QueryParam('param1', true) first: string, @QueryParam('param2', false) second: string) {}
   }
 
   it('should register path params', () => {

@@ -13,7 +13,7 @@ export type ValidatedParamsMetadata = {
   [key: number]: Joi.Schema
 }
 
-export function validated (schema: Joi.Schema) {
+export function Validated (schema: Joi.Schema) {
   return function (
     target: Object, // Class
     propertyKey: string, // method name

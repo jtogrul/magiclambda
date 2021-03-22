@@ -1,4 +1,4 @@
-import { requestBody, RequestBodyParamMetadata, requestBodyParamMetadataKey } from './request-body'
+import { RequestBody, RequestBodyParamMetadata, requestBodyParamMetadataKey } from './request-body'
 
 describe('requestBody', () => {
     type HelloObject = {
@@ -6,9 +6,9 @@ describe('requestBody', () => {
     }
 
     class TestController {
-      testRoute1 (@requestBody(true) helloObject: HelloObject) {}
-      testRoute2 (@requestBody(false) helloObject: HelloObject) {}
-      testRoute3 (anotherParam: string, @requestBody(false) helloObject: HelloObject) {}
+      testRoute1 (@RequestBody(true) helloObject: HelloObject) {}
+      testRoute2 (@RequestBody(false) helloObject: HelloObject) {}
+      testRoute3 (anotherParam: string, @RequestBody(false) helloObject: HelloObject) {}
     }
 
     it('should register required body param', () => {
