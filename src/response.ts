@@ -5,8 +5,8 @@ export type Response = {
   body: any
 }
 
-export const response = (status: number, body: any = ''): Response => {
-  return { status, body }
+export const response = (status: number, body?: any): Response => {
+  return { status, body: body || '' }
 }
 
 export const ok = (body?: any): Response => {
