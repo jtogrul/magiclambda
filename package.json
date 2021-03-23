@@ -1,6 +1,6 @@
 {
   "name": "magiclambda",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple framework for building AWS Lambda functions that can handle multiple AWS API Gateway requests.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,8 +9,8 @@
     "test": "jest",
     "lint": "eslint '**/**.ts' --fix"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Toghrul Jafarli",
+  "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.863.0",
     "joi": "^17.4.0",
