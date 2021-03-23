@@ -89,7 +89,7 @@ Marks the annotated argument as the receiver of the query param `name`. Setting 
 
 Marks the annotated argument as the receiver of the HTTP request body. Setting `required` to `true` instructs the handler to fail the request if the request body is not present.
 
-### `Validated (schema: Joi.Schema)` [argument]
+### `@Validated (schema: Joi.Schema)` [argument]
 
 Instructs the handler to validate the annotated parameter (Path, Query or RequestBody) against given [Joi](https://github.com/sideway/joi) schema.
 

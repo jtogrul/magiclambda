@@ -1,7 +1,6 @@
-import { Controller, Get, controllerHandler, pathParam, Response, ok, queryParam, Post, requestBody } from '.'
+import { Controller, Get, controllerHandler, PathParam, Response, ok, QueryParam, Post, RequestBody, Validated } from '.'
 import 'reflect-metadata'
 import { APIGatewayProxyEvent, APIGatewayProxyEventPathParameters } from 'aws-lambda'
-import { Validated } from './decorators/validated'
 import Joi from 'joi'
 
 type HelloObject = {
@@ -16,17 +15,17 @@ export class ExampleController {
   }
 
   @Get('/hello/{name}')
-  getHelloName (@pathParam('name') name: string): Response {
+  getHelloName (@PathParam('name') name: string): Response {
     return ok(`Hello ${name}`)
   }
 
   @Get('/hello/{name1}/{name2}')
-  getHelloName2 (@pathParam('name1') name1: string, @pathParam('name2') name2: string): Response {
+  getHelloName2 (@PathParam('name1') name1: string, @PathParam('name2') name2: string): Response {
     return ok(`Hello ${name1} and ${name2}`)
   }
 
   @Get('/hello/query')
-  getHelloQuery (@queryParam('name1', true) name1: string, @queryParam('name2', false) name2: string) {
+  getHelloQuery (@QueryParam('name1', true) name1: string, @QueryParam('name2', false) name2: string) {
     if (!name2) {
       return ok(`Hello ${name1}`)
     } else {
@@ -35,17 +34,17 @@ export class ExampleController {
   }
 
   @Post('/hello/body')
-  postHello (@requestBody(true) name: string) {
+  postHello (@RequestBody(true) name: string) {
     return ok(`Hello ${name}`)
   }
 
   @Post('/hello/body/object')
-  postHelloObject (@requestBody(true) helloObject: HelloObject) {
+  postHelloObject (@RequestBody(true) helloObject: HelloObject) {
     return ok(`Hello ${helloObject.name}`)
   }
 
   @Post('/hello/body/object/validated')
-  postHelloObjectValidated (@Validated(Joi.object({ name: Joi.string().alphanum().min(3).max(30).required() })) @requestBody(true) helloObject: HelloObject) {
+  postHelloObjectValidated (@Validated(Joi.object({ name: Joi.string().alphanum().min(3).max(30).required() })) @RequestBody(true) helloObject: HelloObject) {
     return ok(`Hello ${helloObject.name}`)
   }
 }
