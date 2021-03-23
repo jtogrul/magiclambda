@@ -1,10 +1,11 @@
 {
-  "name": "monolambda",
-  "version": "1.0.0",
-  "description": "TypeScript framework for building multi-endpoint AWS API Gateway Lambdas",
-  "main": "index.js",
+  "name": "magiclambda",
+  "version": "0.1.0",
+  "description": "A simple framework for building AWS Lambda functions that can handle multiple AWS API Gateway requests.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "compile": "tsc",
     "test": "jest",
     "lint": "eslint '**/**.ts' --fix"
   },
@@ -24,13 +25,12 @@
     "eslint": "^7.22.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-jest": "^24.3.2",
     "eslint-plugin-typescript": "^0.14.0",
     "jest": "^26.6.3",
     "ts-jest": "^26.5.3",
-    "tsc": "^1.20150623.0",
     "typescript": "^4.2.3"
   }
 }

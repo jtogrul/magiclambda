@@ -1,4 +1,5 @@
-# MonoLambda
+# MagicLambda <span style="color:orange">🪄λ</span>
+
 
 A simple framework for building AWS Lambda functions that can handle multiple AWS API Gateway requests.
 
@@ -7,7 +8,7 @@ A simple framework for building AWS Lambda functions that can handle multiple AW
 Install by `npm`
 
 ```sh
-npm install --save monolambda
+npm install --save magiclambda
 ```
 
 Modify your `tsconfig.json` to enable annotations
@@ -23,12 +24,12 @@ Modify your `tsconfig.json` to enable annotations
 
 ## Getting started
 
-To have the MonoLambda handle API Gateway requests you will need to declare a Controller class with route handler methods.
+To have the MagicLambda handle API Gateway requests you will need to declare a Controller class with route handler methods.
 
 ```typescript
 // controller.ts
 
-import { Controller, Get, PathParam, ok } from 'monolambda'
+import { Controller, Get, PathParam, ok } from 'magiclambda'
 
 @Controller('/example')
 export class ExampleController {
@@ -44,7 +45,7 @@ Then you can use `controllerHandler` from `monorepo` library to automaticly crea
 ```typescript
 // index.ts
 
-import { controllerHandler } from 'monolambda'
+import { controllerHandler } from 'magiclambda'
 import { ExampleController } from './controller'
 
 export const handler = controllerHandler(ExampleController)
@@ -95,7 +96,7 @@ Instructs the handler to validate the annotated parameter (Path, Query or Reques
 
 ## Router response
 
-MonoLambda provides utilities to make it easy to return a response body with common status codes. Simply `return` one of the following function results from your routers.
+MagicLambda provides utilities to make it easy to return a response body with common status codes. Simply `return` one of the following function results from your routers.
 
 ### `ok(body?: any)`
 
