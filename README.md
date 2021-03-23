@@ -29,7 +29,7 @@ To have the MagicLambda handle API Gateway requests you will need to declare a C
 ```typescript
 // controller.ts
 
-import { Controller, Get, PathParam, ok } from 'magiclambda'
+import { Controller, Get, PathParam, Response, ok } from 'magiclambda'
 
 @Controller('/example')
 export class ExampleController {
