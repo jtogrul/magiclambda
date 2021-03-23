@@ -10,6 +10,7 @@
     "lint": "eslint '**/**.ts' --fix"
   },
   "author": "Toghrul Jafarli",
+  "homepage": "https://github.com/jtogrul/magiclambda",
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.863.0",
